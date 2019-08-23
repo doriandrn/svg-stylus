@@ -1,6 +1,7 @@
 #SVG Stylus
 
-This project aims to recreate the functionality of [rework-svg](https://npmjs.org/package/rework-svg) but adapted to work with [Stylus](http://learnboost.github.io/stylus/).
+This is a fork of SVG Stylus plugin that returns either B64 or UTF8 string depending on which is shorter.
+
 
 ##Installation
 
