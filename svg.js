@@ -76,7 +76,7 @@ function getStyledSvgAsDataURL(xml_source, style) {
 
   var svg_buffer = new Buffer(doc.toString(true, true));
   const b64 = svg_buffer.toString('base64')
-  const utf = svg_buffer.toString('utf8')
+  const utf = encodeURI(svg_buffer.toString('utf8'))
   return b64.length < utf.length ?
     'data:image/svg+xml;base64,' + b64 :
     'data:image/svg+xml;utf8,' + utf
