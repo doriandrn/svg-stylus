@@ -76,11 +76,11 @@ function getStyledSvgAsDataURL(xml_source, style) {
   });
 
   var svg_buffer = new Buffer(doc.toString(true, true));
-  const b64 = svg_buffer.toString('base64')
+  const b64 = 'data:image/svg+xml;base64,' + svg_buffer.toString('base64')
   const utf = svgToMiniDataURI(svg_buffer.toString('utf8'))
   return b64.length < utf.length ?
-    'data:image/svg+xml;base64,' + b64 :
-    'data:image/svg+xml;' + utf
+    b64 :
+    utf
 }
 
 /**
@@ -189,7 +189,7 @@ function replaceDeclarationValue(match, pre_whitespace, url_match, svg_style_jso
   }
 
   var svg_data_uri = getStyledSvgAsDataURL(xml_source, svg_style);
-  return pre_whitespace + 'url(\'' + svg_data_uri + '\')';
+  return pre_whitespace + 'url("' + svg_data_uri + '")';
 }
 
 
